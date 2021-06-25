@@ -1,0 +1,84 @@
+*{
+    margin: 2px;
+    padding: 2px;
+    box-sizing: border-box;
+}
+body {
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+
+h1 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    margin-top: 5px;
+}
+h3 {
+    margin-top: -4px;
+    letter-spacing: 0.1rem;
+    /* font-size: large; */
+    /* letter-spacing: 6rem; */
+}
+.player p{
+    margin: -4px;
+    letter-spacing: 0.05rem;
+    /* marg */
+}
+
+.main{
+    /* float: inline-end; */
+    text-align: center;
+}
+.cards{
+    display: inline-block;
+    width: 182px;
+    background-color: rgba(209, 205, 205, 0.966);
+    margin: 10px;
+    box-shadow: 2px 2px 10px black;
+}
+.cards:hover{
+    transform: translateY(-0.5%);
+    box-shadow: 0 1rem 1rem black;
+    /* transition: 0.5s; */
+}
+.DP img{
+    width: 80%;
+}
+.player{
+    text-align: center;
+    margin: 0px;
+        /* padding: 5px; */
+}
+.checked {
+    color: #e94319;
+  }
+button{
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    font-size: small;
+	outline: none;
+	color: white;
+	background: #d41a05;
+	padding: 2px 2px;
+	margin-top: 5px;
+}
+button:hover{
+    background-color: rgb(235, 118, 118);
+    color:black;
+    transition: 0.5s;
+    transform: translateY(-0.3%);
+    box-shadow: 0 0.5rem 0.5rem black;
+}
+
+/* html{
+    font-size: 70%;
+}
+@media only screen and (max-width: 770px) {
+    font-size: 55%;
+}
+@media only screen and (max-width: 770px) {
+    font-size: 40%;
+} */

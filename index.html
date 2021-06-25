@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta
+      charset="UTF-8"
+      name="viewport"
+      content="width=device-width, initial-scale=1"
+    />
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="form.css" />
+    <link rel="stylesheet" href="country-codes.css" />
+    <link rel="stylesheet" href="combine.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+    </style>
+  </head>
+  <body>
+    <!-- Navigation bar -->
+    <div class="nav-bar">
+      <div>
+        <div id="menu-btn" class="nav-item"
+          ><span class="fa fa-bars"></span
+        ></div>
+      </div>
+      <div class="links mobile-none">
+        <a href="#Home" class="nav-item active">Home</a
+        ><a href="team_section.html" target="_blank" class="nav-item">Players or Team</a
+        ><a href="sellers_player.html" target="_blank" class="nav-item">Sellers players</a
+        ><a href="player_registration.html" target="_blank" class="nav-item">Registration</a
+        ><a href="card.html" target="_blank" class="nav-item">Cart icon</a
+        ><a href="contact.html" target="_blank" class="nav-item">Contact us</a>
+      </div>
+      <button
+        type="button"
+        onclick="showContainer(0)"
+        id="login-btn"
+        class="nav-item"
+      >
+        Login
+      </button>
+    </div>
+
+    </div>
+    <!--login form container -->
+    <div class="formContainer">
+      <form class="login-form" action="" autocomplete="off">
+        <h2>User Login</h2>
+        <input
+          onblur="validMail.bind(this)()"
+          type="text"
+          placeholder="Email"
+          name="email"
+          pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10})$"
+          required
+        />
+        <label style="display: none">Email invalid</label>
+        <input
+          type="password"
+          placeholder="Password"
+          class="psw"
+          name="password"
+          required
+        />
+        <div>
+          <div style="text-align: left">
+            <input onchange="showPass.bind(this)()" type="checkbox" />Show
+            password
+          </div>
+          <div style="text-align: right">
+            <span class="span-link" onclick="showContainer(2)"
+              >Forgot password?</span
+            >
+          </div>
+        </div>
+        <button class="submit-btn" type="submit">Login</button>
+        <p>
+          New to CricHeroes?
+          <span class="span-link" onclick="showContainer(1)"
+            >Register Now!</span
+          >
+        </p>
+        <span onclick="hideContainer(0)" class="close-btn">&times;</span>
+      </form>
+    </div>
+
+    <!-- registration form container -->
+    <div class="formContainer">
+      <form
+        class="login-form"
+        onsubmit="return validPass()"
+        action=""
+        autocomplete="off"
+      >
+        <h2>User Registration</h2>
+        <div>
+          <input
+            style="width: 48.5%; margin-right: 5px"
+            type="text"
+            placeholder="First Name"
+            id="fname"
+            name="fname"
+            required
+          />
+          <input
+            style="width: 48.5%"
+            type="text"
+            placeholder="Last Name"
+            id="lname"
+            name="lname"
+          />
+        </div>
+        <input
+          onblur="validMail.bind(this)()"
+          type="text"
+          placeholder="Email"
+          name="email"
+          pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10})$"
+          required
+        />
+        <label id="warn-mail" style="display: none">Email invalid</label>
+        <div style="position: relative">
+          <img
+            id="info"
+            src="https://img.icons8.com/metro/26/000000/info.png"
+          />
+          <div id="info-content">
+            Password must satisfy following:<br />
+            at least 1 lowercase character<br />
+            at least 1 uppercase character<br />
+            at least 1 number<br />
+            at least of length 8
+          </div>
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            class="psw"
+            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+            style="width: 100%"
+            required
+          />
+          <div>
+            <div style="text-align: left">
+              <input onchange="showPass.bind(this)()" type="checkbox" />Show
+              password
+            </div>
+          </div>
+        </div>
+        <input
+          type="password"
+          placeholder="Confirm password"
+          class="psw"
+          name="conf-password"
+          required
+        />
+        <p class="autocomplete">
+          Country:
+          <input
+            type="text"
+            placeholder="Country"
+            id="myCountry"
+            name="country"
+            value="India"
+          />
+        </p>
+        <p style="text-align: left">
+          <span id="code">+ 91 </span>
+          <input type="hidden" name="country-code" value="+ 91" />
+          <input
+            type="text"
+            placeholder="Mobile Number"
+            pattern="[0-9]{10}"
+            title="Please enter 10 digit number"
+            required
+          />
+        </p>
+        <button class="submit-btn" type="submit">Register</button>
+        <p>
+          Already registered?
+          <span class="span-link" onclick="showContainer(0)">Login</span>
+        </p>
+        <span class="close-btn" onclick="hideContainer(1)">&times;</span>
+      </form>
+    </div>
+
+    <!-- forgot password container -->
+    <div class="formContainer">
+      <form class="login-form" action="" autocomplete="off">
+        <h2>Account Recovery</h2>
+        <p>Please enter your email address to search for your account.</p>
+        <input
+          onblur="validMail.bind(this)()"
+          type="text"
+          placeholder="Email"
+          name="email"
+          pattern="^([a-zA-Z0-9\.-]+)@([a-zA-Z0-9-]+).([a-z]{2,10})$"
+          required
+        />
+        <label style="display: none">Email invalid</label>
+        <button class="submit-btn" type="submit">Submit</button>
+        <span class="close-btn" onclick="hideContainer(2)">&times;</span>
+        <span class="span-link" onclick="showContainer(0)">Back to Login</span>
+      </form>
+    </div>
+
+    <script src="country-codes.js"></script>
+    <script src="form.js"></script>
+    <script>
+      var menubtn = document.getElementById("menu-btn");
+      menubtn.addEventListener("click", function () {
+        document
+          .getElementsByClassName("links")[0]
+          .classList.toggle("mobile-none");
+        if (
+          document
+            .getElementsByClassName("links")[0]
+            .classList.contains("mobile-none")
+        )
+          document.getElementById("menu-btn").innerHTML =
+            "<span class='fa fa-bars' ></span>";
+        else
+          document.getElementById("menu-btn").innerHTML =
+            "<span class='fa fa-times'></span>";
+      });
+
+      //add/reomve active class from links
+      var links = document.querySelectorAll(".links > a");
+      for(let i = 0; i < links.length; i++) {
+        links[i].addEventListener('click', function(){
+          var currActive = document.querySelector(".active");
+          currActive.classList.remove('active');
+          this.classList.add('active');
+        })
+      }
+
+      function showContainer(i) {
+        for (let j = 0; j < 3; j++) {
+          if (j == i) continue;
+          else {
+            hideContainer(j);
+          }
+        }
+        let container = document.getElementsByClassName("formContainer")[i];
+        container.style.animation = "zoomIn 0.2s linear";
+        container.style.display = "block";
+      }
+
+      function hideContainer(i) {
+        let container = document.getElementsByClassName("formContainer")[i];
+        container.style.animation = "zoomOut 0.2s linear";
+        setTimeout(() => {
+          container.style.display = "none";
+        }, 175);
+      }
+
+    </script>
+
+    <div id="Home" class="container">
+      <section class="sec1">
+        <div>
+            <h1>Be a CricHeros !!!</h1>
+            <div class="maindiv">
+            </div>
+        </div>
+      </section>
+    </div>
+
+
+    <footer class="footer">
+      <div class="footer__addr">
+        <h1 class="footer__logo">Something</h1>
+            
+        <h2>Contact</h2>
+        
+        <address>
+          5534 Somewhere In. The World 22193-10212<br>
+              
+          <a class="footer__btn" href="mailto:example@gmail.com">Email Us</a>
+        </address>
+      </div>
+      
+      <ul class="footer__nav">
+        <li class="nav__item">
+          <h2 class="nav__title">Media</h2>
+    
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Online</a>
+            </li>
+    
+            <li>
+              <a href="#">Print</a>
+            </li>
+                
+            <li>
+              <a href="#">Alternative Ads</a>
+            </li>
+          </ul>
+        </li>
+        
+        <li class="nav__item nav__item--extra">
+          <h2 class="nav__title">Services</h2>
+          
+          <ul class="nav__ul nav__ul--extra">
+            <li>
+              <a href="#">Blogs</a>
+            </li>
+            
+            <li>
+              <a href="#">About</a>
+            </li>
+            
+            <li>
+              <a href="#">Jobs</a>
+            </li>
+            
+            <li>
+              <a href="#">Paid service Terms</a>
+            </li>
+            
+            <li>
+              <a href="#">ICC Policy</a>
+            </li>
+            
+            <li>
+              <a href="#">BCCI Policy</a>
+            </li>
+          </ul>
+        </li>
+        
+        <li class="nav__item">
+          <h2 class="nav__title">Legal</h2>
+          
+          <ul class="nav__ul">
+            <li>
+              <a href="#">Privacy Policy</a>
+            </li>
+            
+            <li>
+              <a href="#">Terms of Use</a>
+            </li>
+            
+            <li>
+              <a href="#">Sitemap</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="legal">
+        <p>&copy; 2021 CricHeroes Pvt Ltd. All rights reserved.</p>
+        
+        
+      </div>
+    </footer>
+
+  </body>
+</html>
