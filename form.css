@@ -9,8 +9,24 @@
   top: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(18, 18, 18, 0.8);
   overflow: auto;
+}
+.formBackG {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  background: url('wallpaper.jpg');
+  background-size: cover;
+}
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes fadeOut {
+  from {opacity: 1;}
+  to {opacity: 0;} 
 }
 @keyframes zoomIn
  {
@@ -39,30 +55,39 @@
   padding: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 .login-form:hover {
   background-color: rgba(255, 255, 255, 1);
   transition: all 0.5s;
 }
 .login-form h2 {
-  background-color: rgba(99, 88, 88, 40%);
+  background: linear-gradient(rgba(238, 130, 238, 0.71), rgba(0, 0, 255, 0.696));
   padding: 5px 0;
-
+  text-shadow: 0 3px 3px violet, 0 -3px 3px blue;
+  border-radius: 5px;
+}
+#state + p{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: medium;
+}
+.login-form > p {
+  font-size: medium;
 }
 .login-form > :not(.close-btn) {
   width: 100%;
   margin-top: 10px;
 }
-.formContainer input {
+.formContainer input, .formContainer select {
   padding: 8px;
   font-size: medium;
   border: 2px solid #4b9e8b;
   background-color: #e8e8e8;
   border-radius: 4px;
 }
-.login-form input:focus {
+.login-form *:focus {
   border-color: #1a676d;
   outline: none;
 }
@@ -94,7 +119,6 @@
   background-color: rgb(70, 154, 71);
   font-size: medium;
   margin: 10px auto;
-  width: 80%;
   cursor: pointer;
 }
 .submit-btn:hover {
